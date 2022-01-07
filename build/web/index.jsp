@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
-
+<body id="bodyIndex">
     <nav class="navbar">
         <div class="container-fluid px-4">
             <a id="title" class="navbar-brand font-weight-bold" href="#">
@@ -91,6 +90,7 @@
         
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/validaciones.js"></script>
 </body>
 
 </html>

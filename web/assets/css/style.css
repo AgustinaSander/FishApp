@@ -1,4 +1,4 @@
-body {
+#bodyIndex {
   background-image: url("../img/background.jpg");
   backdrop-filter: sepia(0.4) blur(2px);
   padding-bottom: 50px;
@@ -56,6 +56,81 @@ nav {
 #errorContainer:hover p, #successContainer:hover p {
   transform: scale(1.02);
   cursor: pointer;
+}
+
+.pecerasContainer h3 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.pecerasList {
+  padding: 50px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.pecera {
+  text-align: center;
+  padding: 20px;
+  margin: 5px;
+  margin-bottom: 20px;
+  max-width: 320px;
+  transition: all 0.1s;
+}
+.pecera img {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.pecera:hover {
+  transform: scale(1.02);
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+#agregarPeceraBtn {
+  background-color: #014580;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.1s;
+}
+#agregarPeceraBtn i {
+  font-size: 40px;
+}
+#agregarPeceraBtn:hover {
+  cursor: pointer;
+  background-color: #033158;
+  transform: scale(1.02);
+  transition: all 0.1s;
+}
+
+.agregarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+.agregarContainer p {
+  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+footer {
+  background-color: #014580;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+}
+footer p {
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

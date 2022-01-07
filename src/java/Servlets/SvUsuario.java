@@ -26,7 +26,8 @@ public class SvUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getSession().invalidate();
+        response.sendRedirect("index.jsp");
     }
 
     
@@ -41,7 +42,8 @@ public class SvUsuario extends HttpServlet {
         if(usuarioLogueado != null){
             HttpSession miSession = request.getSession();
             miSession.setAttribute("usuario", usuarioLogueado);
-            response.sendRedirect("/peceras.jsp");
+            
+            response.sendRedirect("principal.jsp");
         }
         else{
             request.setAttribute("msg", "<i class=\"fas fa-exclamation-circle text-danger\"></i> Los datos son incorrectos");

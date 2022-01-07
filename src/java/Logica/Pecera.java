@@ -23,6 +23,7 @@ public abstract class Pecera implements Serializable {
     @GeneratedValue( strategy = GenerationType.AUTO )
     protected int idPecera;
     @Basic
+    protected String nombre;
     protected double ancho;
     protected double largo;
     protected double alto;
@@ -45,8 +46,21 @@ public abstract class Pecera implements Serializable {
     public Pecera() {
     }
 
-    public Pecera(int idPecera, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin, List<Habitante> listaHabitantes, Album album, Imagen fotoPrincipal, FichaDatos fichaDatos) {
+    public Pecera(String nombre, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin) {
+        this.nombre = nombre;
+        this.ancho = ancho;
+        this.largo = largo;
+        this.alto = alto;
+        this.capacidad = capacidad;
+        this.iluminacion = iluminacion;
+        this.sistFiltrado = sistFiltrado;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+    }
+
+    public Pecera(int idPecera, String nombre, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin, List<Habitante> listaHabitantes, Album album, Imagen fotoPrincipal, FichaDatos fichaDatos) {
         this.idPecera = idPecera;
+        this.nombre = nombre;
         this.ancho = ancho;
         this.largo = largo;
         this.alto = alto;
@@ -67,6 +81,14 @@ public abstract class Pecera implements Serializable {
 
     public void setIdPecera(int idPecera) {
         this.idPecera = idPecera;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public double getAncho() {
@@ -163,6 +185,11 @@ public abstract class Pecera implements Serializable {
 
     public void setFichaDatos(FichaDatos fichaDatos) {
         this.fichaDatos = fichaDatos;
+    }
+
+    @Override
+    public String toString() {
+        return "Pecera{" + "idPecera=" + idPecera + ", nombre=" + nombre + ", ancho=" + ancho + ", largo=" + largo + ", alto=" + alto + ", capacidad=" + capacidad + ", iluminacion=" + iluminacion + ", sistFiltrado=" + sistFiltrado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", listaHabitantes=" + listaHabitantes + ", album=" + album + ", fotoPrincipal=" + fotoPrincipal + ", fichaDatos=" + fichaDatos + '}';
     }
     
     

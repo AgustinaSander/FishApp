@@ -11,8 +11,20 @@ public class PeceraDulce extends Pecera{
     public PeceraDulce() {
     }
 
-    public PeceraDulce(int idPecera, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin, List<Habitante> listaHabitantes, Album album, Imagen fotoPrincipal, FichaDatos fichaDatos) {
-        super(idPecera, ancho, largo, alto, capacidad, iluminacion, sistFiltrado, fechaInicio, fechaFin, listaHabitantes, album, fotoPrincipal, fichaDatos);
+    public PeceraDulce(String nombre, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin) {
+        super(nombre, ancho, largo, alto, capacidad, iluminacion, sistFiltrado, fechaInicio, fechaFin);
+    }
+    
+    public PeceraDulce(int idPecera, String nombre, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin, List<Habitante> listaHabitantes, Album album, Imagen fotoPrincipal, FichaDatos fichaDatos) {
+        super(idPecera, nombre, ancho, largo, alto, capacidad, iluminacion, sistFiltrado, fechaInicio, fechaFin, listaHabitantes, album, fotoPrincipal, fichaDatos);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getIdPecera() {

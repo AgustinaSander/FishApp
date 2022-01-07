@@ -89,6 +89,11 @@ public class Usuario implements Serializable {
     public void setListaPeceras(List<Pecera> listaPeceras) {
         this.listaPeceras = listaPeceras;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", contrasena=" + contrasena + ", listaPeceras=" + listaPeceras + '}';
+    }
     
     
 }

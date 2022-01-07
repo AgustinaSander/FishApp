@@ -29,7 +29,7 @@ public class PeceraJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Pecera pecera) {
+    public Pecera create(Pecera pecera) {
         if (pecera.getListaHabitantes() == null) {
             pecera.setListaHabitantes(new ArrayList<Habitante>());
         }
@@ -54,6 +54,7 @@ public class PeceraJpaController implements Serializable {
                 }
             }
             em.getTransaction().commit();
+            return pecera;
         } finally {
             if (em != null) {
                 em.close();

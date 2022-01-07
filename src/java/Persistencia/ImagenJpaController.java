@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Persistencia;
 
 import Logica.Imagen;
@@ -17,10 +13,6 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author Agustina
- */
 public class ImagenJpaController implements Serializable {
 
     public ImagenJpaController(EntityManagerFactory emf) {
@@ -35,13 +27,14 @@ public class ImagenJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Imagen imagen) {
+    public Imagen create(Imagen imagen) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(imagen);
             em.getTransaction().commit();
+            return imagen;
         } finally {
             if (em != null) {
                 em.close();

@@ -20,10 +20,24 @@ public class PeceraMarina extends Pecera{
         this.sump = sump;
     }
 
-    public PeceraMarina(String dosificadora, String sump, int idPecera, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin, List<Habitante> listaHabitantes, Album album, Imagen fotoPrincipal, FichaDatos fichaDatos) {
-        super(idPecera, ancho, largo, alto, capacidad, iluminacion, sistFiltrado, fechaInicio, fechaFin, listaHabitantes, album, fotoPrincipal, fichaDatos);
+    public PeceraMarina(String dosificadora, String sump, String nombre, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin) {
+        super(nombre, ancho, largo, alto, capacidad, iluminacion, sistFiltrado, fechaInicio, fechaFin);
         this.dosificadora = dosificadora;
         this.sump = sump;
+    }
+
+    public PeceraMarina(String dosificadora, String sump, int idPecera, String nombre, double ancho, double largo, double alto, double capacidad, String iluminacion, String sistFiltrado, Date fechaInicio, Date fechaFin, List<Habitante> listaHabitantes, Album album, Imagen fotoPrincipal, FichaDatos fichaDatos) {
+        super(idPecera, nombre, ancho, largo, alto, capacidad, iluminacion, sistFiltrado, fechaInicio, fechaFin, listaHabitantes, album, fotoPrincipal, fichaDatos);
+        this.dosificadora = dosificadora;
+        this.sump = sump;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDosificadora() {

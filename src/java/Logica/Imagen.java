@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,6 +27,11 @@ public class Imagen implements Serializable {
     public Imagen() {
     }
 
+    public Imagen(String url, Date fecha) {
+        this.url = url;
+        this.fecha = fecha;
+    }
+    
     public Imagen(int idImagen, String titulo, String descripcion, String url, Date fecha) {
         this.idImagen = idImagen;
         this.titulo = titulo;
@@ -72,6 +78,11 @@ public class Imagen implements Serializable {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Imagen{" + "idImagen=" + idImagen + ", titulo=" + titulo + ", descripcion=" + descripcion + ", url=" + url + ", fecha=" + fecha + '}';
     }
     
     
