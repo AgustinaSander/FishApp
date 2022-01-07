@@ -34,7 +34,7 @@ public class SvAltaPecera extends HttpServlet {
     ControladoraLogica control = new ControladoraLogica();
     private String pathFiles = "C:\\Users\\Agustina\\OneDrive\\UTN\\Cursos\\Curso JAVA - Udemy\\FishApp\\web\\files\\";
     private File uploads = new File(pathFiles);
-    private String[] extens = {".ico",".png",".jpg",".jpeg"};
+    private String[] extens = {".ico",".png",".jpg",".jpeg",".ICO",".PNG",".JPG",".JPEG"};
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -89,15 +89,21 @@ public class SvAltaPecera extends HttpServlet {
         String dosificadora = request.getParameter("dosificadora");
         String sump = request.getParameter("sump");
         String iluminacion = request.getParameter("iluminacion");
+        
+        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
+        
         Part part = request.getPart("foto");
         String foto = "";
         if(part != null){
-            if(isExtension(part.getSubmittedFileName(), extens)){
-                foto = saveFile(part, uploads);
+            String extension = isExtension(part.getSubmittedFileName(), extens);
+            if(!(extension.equals(""))){
+                //Creo el nombre de la imagen concatenando distintos valores
+                int idImagen = control.obtenerCantidadImagen();
+                idImagen++;
+                String fileName = Integer.toString(idImagen) + u.getNombre() + u.getIdUsuario() + u.getApellido() + extension;
+                foto = saveFile(part, uploads, fileName);
             }
         }
-        
-        Usuario u = (Usuario) request.getSession().getAttribute("usuario");
         
         try {
             Pecera creada = control.crearPecera(u.getIdUsuario(), nombre, tipoAgua, alto, ancho, largo, capacidad, fechaInicio, fechaFin, filtrado, dosificadora, sump, iluminacion, foto);
@@ -118,20 +124,14 @@ public class SvAltaPecera extends HttpServlet {
         return "Short description";
     }
 
-    private String saveFile(Part part, File pathUploads){
-        String pathAbsolute = "";
-        String fileName = "";
+    private String saveFile(Part part, File pathUploads, String fileName){
         try {
             Path path = Paths.get(part.getSubmittedFileName());
-            fileName = path.getFileName().toString();
             InputStream input = part.getInputStream();
-            /*int idImagen = control.obtenerCantidadImagen();
-                idImagen++;
-                File file = new File(pathUploads, Integer.toString(idImagen));
-            */
+            
+            
             if(input != null){
                 File file = new File(pathUploads, fileName);
-                pathAbsolute = file.getAbsolutePath();
                 Files.copy(input, file.toPath());
             }
             
@@ -142,13 +142,13 @@ public class SvAltaPecera extends HttpServlet {
         return fileName;
     }
     
-    private boolean isExtension(String fileName, String[] extensions){
+    private String isExtension(String fileName, String[] extensions){
         for(String et: extensions){
             if(fileName.toLowerCase().endsWith(et)){
-                return true;
+                return et;
             }
         }
-        return false;
+        return "";
     }
     
 }
